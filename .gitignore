@@ -1,2 +1,3 @@
-/assets/
-/playlists/
+/assets/*
+/playlists/*
+/test/*
