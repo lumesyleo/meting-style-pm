@@ -1,5 +1,6 @@
-<FilesMatch "\.(lrc|json|mp3|jpg|jpeg|png|ogg|wav|m4a)$">
+<IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "GET, OPTIONS"
-    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
-</FilesMatch>
+    Header set Access-Control-Allow-Headers "*"
+    Header set Access-Control-Allow-Methods "*"
+    Header set Access-Control-Max-Age "86400"
+</IfModule>

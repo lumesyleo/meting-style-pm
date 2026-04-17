@@ -1,0 +1,8 @@
+{
+    "default_cover": ".\/assets\/default.jpg",
+    "default_lrc": ".\/assets\/default.lrc",
+    "default_title": "未知曲目",
+    "default_artist": "未知歌手",
+    "parse_separator": "-",
+    "parse_format": "title_artist"
+}
