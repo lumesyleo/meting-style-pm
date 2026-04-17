@@ -1,3 +1,6 @@
-/assets/**
-/playlists/**
-/test/**
+/assets/*
+!/assets/.gitkeep
+/playlists/*
+!/playlists/.gitkeep
+/test/*
+!/test/.gitkeep
