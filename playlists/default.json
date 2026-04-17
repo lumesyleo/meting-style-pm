@@ -1,0 +1,9 @@
+[
+    {
+        "name": "示例歌曲",
+        "artist": "示例歌手",
+        "url": ".\/assets\/demo.mp3",
+        "pic": ".\/assets\/default.jpg",
+        "lrc": ".\/assets\/demo.lrc"
+    }
+]

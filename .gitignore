@@ -1,3 +1,6 @@
-/assets/*
-/playlists/*
+/assets/**
+!/assets/
+/playlists/**
+!/playlists/
 /test/*
+/.gitignore
