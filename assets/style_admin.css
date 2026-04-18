@@ -1,0 +1,57 @@
+/* 对 Toast 提示框的宽度进行优化 */
+#toast-container .toast {
+    max-width: min(350px, calc(100vw - 2rem));
+}
+
+.table-responsive {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	position: relative; /* 为 sticky 提供定位上下文 */
+}
+
+#playlistTable {
+	border-collapse: separate !important;
+	border-spacing: 0;
+	/* table-layout: fixed; 固定布局让 text-truncate 生效 */
+	width: 100%;
+}
+
+/* 强制单元格内容不溢出 */
+#playlistTable th, #playlistTable td {
+    overflow: hidden !important;
+}
+
+/* 固定样式 */
+.sticky-col {
+	position: sticky !important;
+	right: 0 !important;
+	z-index: 20 !important;
+	background-color: #ffffff !important;
+	box-shadow: -3px 0 8px rgba(0,0,0,0.08) !important;
+}
+
+thead th.sticky-col {
+	background-color: #f8f9fa !important;
+	z-index: 21 !important;
+}
+
+tbody td.sticky-col {
+	background-color: #ffffff !important;
+}
+
+.table-hover tbody tr:hover td.sticky-col {
+	background-color: rgba(0,0,0,.075) !important;
+	z-index: 30 !important;
+}
+
+.dragging-picked td.sticky-col { 
+	background: #cfe2ff !important; 
+}
+
+.drag-placeholder td.sticky-col { 
+	background: transparent !important; 
+}
+
+.drag-placeholder-text {
+	text-align: left;
+}

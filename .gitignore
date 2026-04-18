@@ -1,5 +1,5 @@
-/assets/*
-!/assets/.gitkeep
+/localmedia/*
+!/localmedia/.gitkeep
 /playlists/*
 !/playlists/.gitkeep
 /test/*
