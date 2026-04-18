@@ -37,6 +37,7 @@ thead th.sticky-col {
 
 tbody td.sticky-col {
 	background-color: #ffffff !important;
+	z-index: 31;
 }
 
 .table-hover tbody tr:hover td.sticky-col {

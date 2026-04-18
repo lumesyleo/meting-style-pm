@@ -44,8 +44,8 @@ function renderTable() {
 
         tr.innerHTML = `
             <td><input type="checkbox" class="form-check-input pl-check" data-idx="${i}"></td>
-            <td class="fw-medium text-truncate" style="max-width:140px" title="${esc(item.name||'')}">${esc(item.name || '未知曲目')}</td>
-            <td class="text-muted text-truncate" style="max-width:120px" title="${esc(item.artist||'')}">${esc(item.artist || '未知歌手')}</td>
+            <td class="fw-medium text-truncate" style="max-width:150px" title="${esc(item.name||'')}">${esc(item.name || '未知曲目')}</td>
+            <td class="text-muted text-truncate" style="max-width:150px" title="${esc(item.artist||'')}">${esc(item.artist || '未知歌手')}</td>
             <td class="d-none d-md-table-cell font-monospace small text-truncate" title="${esc(item.url||'')}">${esc(item.url || '')}</td>
             <td class="d-none d-md-table-cell font-monospace small text-truncate" title="${esc(item.lrc||'')}">${esc(item.lrc || '')}</td>
             <td class="d-none d-md-table-cell font-monospace small text-truncate" title="${esc(item.pic||'')}">${esc(item.pic || '')}</td>
@@ -313,18 +313,23 @@ function askDuplicateAction() {
 }
 async function handleDuplicateBatch(newItems) {
     if (!newItems.length) return;
-    const existingUrls = new Set(plState.map(i => i.url).filter(Boolean));
-    const hasConflict = newItems.some(ni => existingUrls.has(ni.url));
     let action = 'merge';
-    if (hasConflict) action = await askDuplicateAction();
-    if (action === 'cancel') return showToast('已取消操作', 'warning');
+    // 修改简化：只要当前歌单不为空，一律弹出提示框询问
+    if (plState.length > 0) {
+        action = await askDuplicateAction();
+        if (action === 'cancel') return showToast('已取消操作', 'warning');
+    }
 
-    if (action === 'overwrite') plState = newItems;
-    else {
+    if (action === 'overwrite') {
+        plState = newItems;
+    } else {
+        // 合并模式下，仍基于音频路径做基础去重，避免重复追加相同文件
+        const existingUrls = new Set(plState.map(i => i.url).filter(Boolean));
         const toAdd = newItems.filter(ni => !existingUrls.has(ni.url));
         plState.push(...toAdd);
     }
-    normalizePlaylistNames(); renderTable();
+    normalizePlaylistNames();
+    renderTable();
     showToast(action === 'overwrite' ? '已覆盖更新' : '已去重合并');
 }
 

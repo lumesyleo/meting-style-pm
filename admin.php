@@ -438,13 +438,13 @@ foreach ($playlist_files as $f) {
 						<h5 class="modal-title">发现重复曲目</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 					</div>
 					<div class="modal-body">
-						<p class="mb-2">检测到本次操作包含已存在的曲目（以音频路径为准），请选择处理方式：</p>
-						<ul class="small text-muted ps-3 mb-0">
-							<li><b>覆盖</b>：新数据完全替换当前歌单（移除未包含的旧项目）</li>
-							<li><b>去重合并</b>：跳过重复项，仅追加新曲目</li>
-							<li><b>取消</b>：放弃本次所有操作</li>
-						</ul>
-					</div>
+                        <p class="mb-2">当前歌单已有曲目，请选择处理方式：</p>
+                        <ul class="small text-muted ps-3 mb-0">
+                            <li><b>覆盖</b>：清空现有歌单，完全替换为本次添加的曲目</li>
+                            <li><b>合并</b>：保留现有曲目，追加本次新曲目（自动跳过重复项）</li>
+                            <li><b>取消</b>：放弃本次添加操作</li>
+                        </ul>
+                    </div>
 					<div class="modal-footer justify-content-start gap-2">
 						<button type="button" class="btn btn-warning" id="btnDupOverwrite">覆盖</button><button type="button" class="btn btn-info" id="btnDupMerge">去重合并</button>
 						<button type="button" class="btn btn-secondary" id="btnDupCancel">取消</button>
